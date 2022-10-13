@@ -1,0 +1,253 @@
+* {box-sizing: border-box;}
+
+img{max-width: 100%;}/* Torna as imagens flexíveis, fazendo ela acompahnhar o tamanho da tela, tela pequena ela diminui e tela grande ela aumenta. Sempre ficando proporcional */
+
+body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+a { text-decoration: none;}/* Tira o underline de todos os links */
+
+header { 
+    text-align: center;
+    height: 100px;
+    /* padding-top: 10px; Deixa o header mais afastado do topo da página */
+}
+
+/* CSS Reset */
+body, h1, h2, p, figure { /* Tira os espaçamentos padrão perto dos elementos indicados */
+    margin:0;
+    padding: 0;
+}
+
+h1, nav { text-transform: uppercase;} /* Deixa a letra maiúscula */
+
+h1 a{ 
+    background-color: black;
+    border-radius: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 5px 15px;
+    color: white;
+    font-weight: normal;/* Permite tirar o negrito de uma fonte */
+}
+
+h1 { font-size: 25px;}
+
+nav{
+    /* background-color: lightcyan; */
+    margin-top: 10px;/* Cria espaçamento fora do nav */
+    /* padding-top: 10px; Cria espaçamento dentro do nav */
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+        
+}
+
+nav a{ 
+    color: black;
+    font-weight: bold;
+    padding: 10px;  
+    transition: 0.5s;  
+}
+
+nav a:hover, nav a:focus {
+    background-color: gray;  
+}
+
+/* Regras de conteúdo(articles) */
+.destaque{
+    background-image:url(../imagens/fundo-destaque.jpg);
+    height: 500px;
+    color: white;
+    text-align: center;
+    
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;/* Alinhando todos os itens juntos, como um conteúdo só(e assim, evitando espaços entre eles) */
+}
+
+.destaque h2{
+     font-size: 64px;
+     animation-name: aparecer;
+     animation-duration: 2s;
+}
+
+.destaque p{ 
+    font-size: 32px;
+    font-weight:bold;
+    animation-name: aparecer;
+    animation-duration: 2s;
+
+    /* Atraso no início da animação */
+    animation-delay: 2s;
+
+    /* Faz com que o texto já comece transparente(opacidade 0) após o delay */
+    animation-fill-mode: backwards;
+}
+
+@keyframes aparecer {
+    from{opacity: 0;}
+    to {opacity: 1;}
+}
+
+article h2{
+    text-align: center;
+    padding: 20px;
+}
+
+article p{padding: 5px 10px;}/* 5 pra cima e pra baixo e 10 pra esquerda e direita */
+
+figure{
+    padding: 0 10px;
+    text-align: center;
+}
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+    color: white;
+    text-shadow: black 1px 1px 3px;
+    text-align: center;
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 650px;
+}
+
+.localizacao {text-align: center;}
+
+.localizacao iframe{width: 100%;}/* Faz com que o mapa acompanhe o tamanho da tela, sempre preenchendo completamente */
+
+footer{ 
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.conteudo{
+    background-color: lavender;
+    border-radius: 10px;
+}
+
+table, td, th{
+    border: solid 2px black;/* Se não for especificada a cor da borda, a borda da tabela automaticamente assume a cor do texto */
+    
+    /* Remove espaçamento entre as bordas */
+    border-collapse: collapse;    
+}
+
+table{
+    margin: auto;
+    width: 80%;    
+}
+
+th, td {padding: 5px;}
+
+/* odd(ímpar) even(par) */
+tr:nth-child(odd){background-color: gray;}
+
+th{
+    background-color: black;
+    color: white;    
+}
+
+/* Pseudo-classes: nth-child, first-child, last child */
+td:first-child {text-transform: uppercase;}
+td:nth-child(2) {color:darkorchid;}
+td:last-child {
+    color:darkmagenta;
+    text-align: center;
+    font-weight: bold;
+}
+
+.imagem{
+    border-radius: 100%;
+    box-shadow: 0 0 10px black; 
+    transition: 1s;/* Colocamos no estado inicial para que tenha o efeito tanto quanto se coloca o mouse quanto quando tira */
+    transform: scale(0.8);/* Quando você quer que a imagem comece menor coloca scale(0) */
+}
+
+.imagem:hover{transform: scale(1);}/* Pra começar a imagem maior coloca scale(1) */
+
+/* Regras para formulários */
+
+form {
+    background-color: seashell;
+    width: 80%;
+    margin: auto;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+#nome, #email, #nascimento, #assunto, #mensagem, #telefone {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 7px;
+}
+
+#mensagem{height: auto;}
+
+button {
+    border: none;
+    background-color:lightsteelblue;
+    color:black;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+input, span{margin-top: 10px;}
+
+button:hover, button:focus{ background-color:deepskyblue;}
+
+
+
+
+/* Regras Condicionais usando Media Queries */
+@media screen and (min-width:530px) {
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    h1{margin-left: 2vw;}
+
+    nav{ 
+        margin-right: 2vw;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width:800px) {
+    h1 {font-size:30px;}
+
+    header{ height: 85px;}
+
+    nav{width: 70%;}
+
+    nav a{padding: 20px;}
+
+    .destaque{height: 550px;}
+
+    p{font-size: 20px;}
+}
+
+@media screen and (min-width:1000px){
+    .limitador{
+        max-width: 1000px;
+        margin: auto;
+    }
+}
+
